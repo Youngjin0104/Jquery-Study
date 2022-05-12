@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.main').append('<li>5</li>');
+            $('.main').preappend('<li>0</li>');
+            $('.main').before('<div class="first">main앞부분추가</div>');
+            $('.main').after('<div>main뒷부분추가</div>');
+            
+            var cloneEl = $('.list_1').clone();
+            $('.first').append(cloneEl);
+        });
+    </script>
+</head>
+<body>
+    <ul class="main">
+        <!-- <li>0</li> -->
+        <li class="list_1">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <!-- <li>5</li> -->
+    </ul>
+</body>
+</html>

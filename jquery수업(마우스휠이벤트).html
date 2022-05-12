@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+        }
+
+        #wrap>div {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .con1 {
+            background-color: aqua;
+        }
+
+        .con2 {
+            background-color: bisque;
+        }
+
+        .con3 {
+            background-color: violet;
+        }
+
+        .con4 {
+            background-color: rebeccapurple;
+        }
+
+        .con5 {
+            background-color: royalblue;
+        }
+    </style>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="con1">con1</div>
+        <div class="con2">con2</div>
+        <div class="con3">con3</div>
+        <div class="con4">con4</div>
+        <div class="con5">con5</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var ht = $(window).height(); // 기본화면의 높이값(고정값)
+            $('#wrap > div').height(ht);
+
+            $(window).on('resize', function () {
+                var ht = $(window).height; // 화면이 바뀔때 높이값
+                $('#wrap > div').height(ht);
+            });
+
+            $('#wrap > div').on('mousewheel', function (event, delta) {
+                if (delta > 0) {
+                    var prev = $(this).prev().offset.top;
+                    $('html, body').stop().animate({ 'scrollTop': prev }, 1000), 'easeOutExpo'
+                } else if (delta < 0) {
+                    var prev = $(this).prev().offset.top;
+                    $('html, body').stop().animate({ 'scrollTop': prev }, 1000), 'easeOutExpo'
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

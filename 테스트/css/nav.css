@@ -1,0 +1,63 @@
+
+.header {
+    width: 100%;
+    height: 100px;
+    /* background-color: burlywood; */
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    background-color: burlywood;
+}
+
+.logo a {
+    width: 200px;
+    height: 40px;
+    background-color: wheat;
+    font-size: 30px;
+}
+
+.menu_wrap {
+    display: flex;
+    align-items: center;
+    width: 1000px;
+    height: 100px;
+    background-color: burlywood;
+}
+
+.dep1 {
+    display: flex;
+    position: absolute;
+    right: 400px;
+    top: 40px;
+}
+
+.dep1 > li {
+    display: inline-block;
+    width: 150px;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: top;
+}
+
+.dep1 > li > a {
+    display: block;
+    margin: -2px;
+    border: 2px solid #000;
+}
+
+.dep2 {
+    display: none;
+}
+
+li > a:hover .dep2{
+    display: block;
+}
+

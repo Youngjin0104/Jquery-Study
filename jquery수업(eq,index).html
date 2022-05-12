@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <style>
+        .menu>li {
+            cursor: pointer;
+        }
+
+        .menu>li:hover {
+            color: blueviolet;
+        }
+
+        div {
+            border: 3px solid #000;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- gomaic@hanmail.net -->
+    <!-- eq(): 형제요소 중에서 몇번째, index(): 형제요소 중에서 몇번인지 일련번호 추출  -->
+
+    <ul class="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+    </ul>
+
+    <div>box0</div>
+    <div>box1</div>
+    <div>box2</div>
+    <div>box3</div>
+    <div>box4</div>
+
+    <script>
+        $(document).ready(function () {
+            $('.menu > li').click(function () {
+                var i = $(this).index();
+                $('div').css({ height: '0px' });
+                $('div').eq(i).css({ height: '50px' })
+            });
+        });
+    </script>
+</body>
+
+</html>

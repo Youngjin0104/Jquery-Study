@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div#container {
+            width: 600px;
+            height: 200px;
+            left: 0px;
+            top: 0px;
+            position: relative;
+        }
+
+        div#home {
+            width: 50px;
+            height: 200px;
+            background-color: #ff9999;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            z-index: 2;
+        }
+
+        ul {
+            width: 600px;
+            height: 200px;
+            list-style: none;
+            left: -600px;
+            top: 0px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        ul li {
+            width: 200px;
+            height: 200px;
+            float: left;
+            opacity: 0.7;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="home">HOME</div>
+        <ul id="menu">
+            <li><img src="images/IMG_0114.JPG" alt=""></li>
+            <li><img src="images/IMG_0115.JPG" alt=""></li>
+            <li><img src="images/IMG_0116.JPG" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        $('#home').mousemove(function (e) {
+            var pos = e.pageY - parseInt($("#container").css("height")) / 2 + "px";
+            console.log(pos);
+            $('#container').css({ top: pos });
+        });
+
+        $('#home').toggle(
+            function () {
+                $('ul').stop().animate({ left: "50px" }, 500);
+            },
+            function () {
+                $('ul').stop().animate({ left: "-600px" }, 500);
+            }
+        );
+
+        $('li').hover(
+            function () {
+                $(this).animate({ opacity: 1 }, 300)
+            }, function () {
+                $(this).animate({ opacity: 0.7 }, 300)
+            }
+        );
+    </script>
+</body>
+
+</html>

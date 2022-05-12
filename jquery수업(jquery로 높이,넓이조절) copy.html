@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .test {
+            border: 5px solid blue;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.test').css('width', $(window).width());
+            $('.test').css('height', $(window).height());
+            $(window).resize(function () {
+                $('.test').css('width', $(window).height());
+                $('.test').css('height', $(window).height());
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="test">
+        jquery로 높이, 넓이 조절
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/jquery.js"></script>
+</head>
+<style>
+    body {
+        margin: 20px auto;
+        padding: 0;
+        width: 630px;
+        background-color: #192839;
+    }
+
+    .thumbs {
+        float: left;
+        width: 120px;
+    }
+
+    .thumbs img {
+        margin-bottom: 3px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        width: 120px;
+        height: 170px;
+    }
+
+    .thumbs img:hover {
+        border-color: #ef4018;
+    }
+
+    #largeImg {
+        position: absolute;
+        overflow: hidden;
+        margin-left: 140px;
+        padding: 5px;
+        width: 500px;
+        height: 550px;
+        border: 1px solid #ccc;
+    }
+
+    #caption {
+        position: relative;
+        padding: 10px;
+        font-size: 12px;
+        background-color: rgba(172, 172, 172, 0.3);
+        color: #fff;
+        border: 1px solid #ccc;
+    }
+
+    .thumbs>em {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <div class="thumbs">
+        <a class="main_img" href="images/IMG_0114.JPG" title="image1"><img src="images/IMG_0114.JPG" /></a>
+        <em>교토에서 도톤보리에서 술을 마시기 위해 향하고 있는 옛 직장 동료와 친구들</em>
+
+        <a href="images/IMG_0115.JPG" title="image2"><img src="images/IMG_0115.JPG" /></a>
+        <em>벚꽃 구경 후 교토에서 무엇을 하면 좋을지 고민하는 옛 직장 동료와 친구들</em>
+
+        <a href="images/IMG_0116.JPG" title="image3"><img src="images/IMG_0116.JPG" /></a>
+        <em>사진에 보이는 저 빨간 무언가(?)를 보기 위해 걷다가 멈춰 찍은 사진</em>
+    </div>
+    <div id="largeImg"><img src="images/IMG_0114.JPG" style="width: 500px; height: 550px;" alt="image1"></div>
+
+    <script>
+
+        $(document).ready(function () {
+            var msg = $('.main_img').next('em').text();
+            $('#largeImg').append('<div id="caption"></div>');
+            $('#largeImg #caption').text(msg);
+
+            var posy = $('#largeImg #caption').height() + 27;
+            $('#largeImg #caption').animate({ top: -posy + "px" }, 300);
+
+            $('.thumbs > a').click(function (e) {
+                e.preventDefault();
+                //attr() 지정된 대상 속성값을 읽거나 수정하는 메소드
+                var path = $(this).attr('href');
+                // console.log(msg);
+                if ($('#caption')) {
+                    $('#caption').remove();
+                }
+                if (path != $('#largeImg img').attr('src')) {
+                    $('#largeImg img').attr({ src: path });
+                    $('#largeImg img').css({ opacity: 0 }).stop().animate({ opacity: 1 }, 1000);
+                }
+
+                var msg = $(this).next('em').text();
+                $('#largeImg').append('<div id="caption"></div>');
+                $('#largeImg #caption').text(msg);
+
+                var posy = $('#largeImg #caption').height() + 27;
+                $('#largeImg #caption').animate({ top: -posy + "px" }, 300);
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
