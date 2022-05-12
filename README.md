@@ -1,3 +1,3 @@
 # Jquery-Study
 
-jquery 수업 자료 입니다.
+query 수업 자료
